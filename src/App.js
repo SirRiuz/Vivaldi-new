@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+
+
+import React from 'react';
+import AplicationContext from './context/Aplication';
+import Navigator from './Navigator';
+import Scanner from './screens/scanner';
+import './styles/app.css'
+
+
 
 function App() {
+
+  const [ context,setContext ] = React.useState({
+    screen:null
+  })
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AplicationContext.Provider value={{
+        context,
+        setContext
+      }}>
+        <Scanner/>
+        <Navigator/>
+      </AplicationContext.Provider>
     </div>
   );
 }

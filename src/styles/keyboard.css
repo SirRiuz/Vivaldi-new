@@ -1,0 +1,49 @@
+
+
+.keyboard-container{
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  background-color: #F4F4F4;
+}
+
+
+
+.keyboard-item{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+
+.keyboard-grup-buttios{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.keyboard-navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin-top: 10px;
+  height: 63px;
+  background-color: white;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.key-buttons{
+  display: flex;
+}
+

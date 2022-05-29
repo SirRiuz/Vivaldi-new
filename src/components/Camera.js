@@ -13,8 +13,9 @@ function Camera(props) {
   var canvaRef = React.createRef()
   var cropRef = React.createRef()
   var renderComponent = null
-  
+  var controlls = null
   const [ snapImage,setSnap ] = React.useState(null)
+
   const start = React.useCallback(() => {
     if(props.onMove !== undefined){
       props.onMove(
@@ -60,10 +61,23 @@ function Camera(props) {
   })
 
 
+  const onClose = React.useCallback(() => {
+    if (props.onClose != undefined) { props.onClose() }
+    setSnap(() => null)
+  })
+
+
   getMediaData()
 
 
   if(snapImage !== null) {
+
+    controlls = (
+      <div className={'camera-controlls'}>
+        <div onClick={onClose}>[CLOSE]</div>
+      </div>
+    )
+
     renderComponent = (
       <Cropper
         id={'crop'}
@@ -93,10 +107,10 @@ function Camera(props) {
 
   return(
     <div>
+      { controlls }
       { renderComponent }
     </div>
   )
-
 
 } 
 

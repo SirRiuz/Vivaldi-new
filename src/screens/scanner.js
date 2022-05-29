@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import Camera from "../components/Camera";
 import FloatingPanel from "../components/FloatingPanel";
@@ -5,13 +7,10 @@ import { getLatexByImage } from "../services/scanner";
 
 
 
-
 function Scanner(props) {
 
-  var floatingPanel = null
+  const [ data,setData ] = React.useState(null)
 
-  const [ snap,setSnap ] = React.useState(null)
-  const [ isLoad,setLoad ] = React.useState(null)
   const getSnap = React.useCallback((snap,frame) => {
 
     frame.innerHTML = `
@@ -26,39 +25,33 @@ function Scanner(props) {
       .then(res => res.json())
       .then(res => {
         frame.innerHTML = ''
-        if(res.status == 'ok'){
-          console.log(res.data)
-        } else {
-          console.log('LAtex error')
-        }
+        setData(() => res)
       })
       .catch(err => {
-        console.log('Server error')
+        setData(() => undefined)
       })
 
   })
 
   const onMove = React.useCallback((frame) => {
     frame.innerHTML = ''
-    setLoad(() => null)
+    setData(() => null)
   })
 
 
-  if(isLoad !== null) {
-    floatingPanel = (<FloatingPanel result={isLoad}/>)
-  }
+  const onClose = React.useCallback(() => {
+    setData(() => null)
+  })
 
 
   return (
     <div>
-      {/* <Camera
-        getSnap={getSnap}
-      /> */}
       <Camera
         onMove={onMove}
         getSnap={getSnap}
+        onClose={onClose}
       />
-      { floatingPanel }
+      <FloatingPanel data={data}/>
     </div>
   )
 }
@@ -66,5 +59,3 @@ function Scanner(props) {
 
 
 export default Scanner
-
-

@@ -4,18 +4,35 @@
 .floating-panel {
   background-color: white;
   position: fixed;
-  width: 95%;
-  height: 95px;
+  width: 90%;
+  height: 100px;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  border-radius: 7px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  border-radius: 5px
 }
 
-#latex-container{
+
+
+.error-messege {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+  border-radius:5px;
+  position:fixed;
+  width:90%;
+  height:35px;
+  bottom:0;
+  background:rgba(0, 0, 0, .6);
+  color: white;
+  transform:translateX(-50%);
+  left:50%;
+  margin-bottom:20px;
+  pointer-events: none;
+}
+
+/* #latex-container{
   padding-left: 35px;
 }
 
@@ -26,4 +43,4 @@
 
 .katex {
   font-size: 30px;
-}
+} */

@@ -10,14 +10,18 @@ import MoveLeft from '../svg/MoveLeft'
 
 function AppBar(props) {
 
-  const aplicationContext = React.useContext(AplicationContext)
+  const { context } = React.useContext(AplicationContext)
   
   const goBack = useCallback(() => {
-    var context = { screen:null }
+    var newContext = { screen:null,showSteps:true }
+
+    context.setContext(() => context=newContext)
     
-    aplicationContext.setContext(
-      () => aplicationContext.context=context
-    )
+    //console.log(context.screen.showSteps)
+    
+    // aplicationContext.setContext(
+    //   () => aplicationContext.context=context
+    // )
   },[])
 
   return(

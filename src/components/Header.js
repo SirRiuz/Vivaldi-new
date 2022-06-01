@@ -12,6 +12,16 @@ import aplicationContext from '../context/Aplication'
 function Header(props) {
 
   const appContext = React.useContext(aplicationContext)
+  const onClick = React.useCallback(() => {
+    var newContext = { screen:{ to:'steps',showSteps:true,params:{
+      latex:document.getElementById('math-input').value
+    } } }
+    appContext.setContext(
+      () => appContext.context=newContext
+    )
+  })
+
+
   const showCamera = React.useCallback(() => {
     var newContext = { screen:{ to:'Show camera' } }
     appContext.setContext(
@@ -23,8 +33,9 @@ function Header(props) {
 
   
   if(appContext.context.showSteps) {
+    console.log(appContext)
     showStepsIcon = (
-      <div className={'icon'}>
+      <div className={'icon'} onClick={onClick}>
         <Steps/>
       </div>
     )

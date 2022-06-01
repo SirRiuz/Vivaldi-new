@@ -3,6 +3,8 @@
 import { getHistory, removeItem } from '../services/history'
 import React, { useCallback, useEffect } from 'react'
 import '../styles/history.css'
+var Latex = require('react-latex')
+
 
 
 
@@ -35,8 +37,8 @@ function History(props) {
     renderHistory = history.map((x,k) => (
       <div key={k} className={'history-item'}>
         <div>
-          <div><strong>{x.input}</strong></div>
-          <div><strong>{x.result}</strong></div>
+          <div><Latex>{`$${x.input}$`}</Latex></div>
+          <div><Latex>{`$${x.result}$`}</Latex></div>
         </div>
 
         <div onClick={() => onDelete(x)}>

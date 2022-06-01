@@ -1,11 +1,12 @@
 import SETTINGS from "../settings"
 
 
-function getSteeps() {
+function getSteeps(data) {
 
   var params = new FormData()
-  params.append('latex','\\int\\sin^2x')
-  params.append('operation','integrate')
+  console.log(data.latex)
+  params.append('latex',data.latex)
+  //params.append('operation','integrate')
 
   return fetch(SETTINGS.API_URL+'/api/v1/steps/',{
     method:'POST',

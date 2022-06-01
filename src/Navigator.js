@@ -5,6 +5,7 @@ import AppBar from './components/Appbar'
 import './styles/navigation.css'
 import AplicationContext from './context/Aplication'
 import History from './screens/history'
+import Steps from './screens/steps'
 
 
 
@@ -18,6 +19,10 @@ function Navigator(props) {
   switch(aplicationContext.context.screen.to) {
     case 'history':
       renderComponent = <History/>
+      break
+
+    case 'steps':
+      renderComponent = <Steps/>
       break
   }
 

@@ -112,3 +112,9 @@ video{
   margin-right: 45px;
   pointer-events: all;
 }
+
+
+.cropper-container , .cropper-bg {
+  width: 10px;
+  height: 10px;
+}

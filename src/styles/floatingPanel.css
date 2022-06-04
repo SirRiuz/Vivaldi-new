@@ -1,17 +1,27 @@
 
 
 
+
+
 .floating-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: white;
   position: fixed;
   width: 90%;
-  height: 100px;
+  height: 150px;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 5px
 }
 
+
+
+.panel-container{
+  margin-left: 20px;
+}
 
 
 .error-messege {

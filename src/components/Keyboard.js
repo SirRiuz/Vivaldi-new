@@ -11,7 +11,7 @@ import Numeric from "../svg/Numeric";
 import React,{ useCallback } from "react";
 import KeyContext from '../context/KeyboardContext'
 import getKeys from "../context/Keyboard";
-import { Link } from "react-router-dom";
+import SaveIcon from "../svg/Save";
 
 
 function Keyboard(props) {
@@ -68,7 +68,7 @@ function Keyboard(props) {
 
             <Button
               style={{ width:'50px' }}
-              renderValue={'history'}
+              renderValue={<SaveIcon/>}
               action={'navigate-to-history'}
             />
           </div>
@@ -81,7 +81,13 @@ function Keyboard(props) {
               action={'delete'}
             />
             <Button
-              style={{ width:'50px' }}
+              style={{
+                width:'50px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+              className={'send-button'}
               renderValue={<Send/>}
               action={'submit'}
             />

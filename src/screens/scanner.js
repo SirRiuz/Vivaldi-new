@@ -28,7 +28,12 @@ function Scanner(props) {
         setData(() => res)
       })
       .catch(err => {
-        setData(() => undefined)
+        frame.innerHTML = '' 
+        var data = {
+          status:'error',
+          type:'conexion-error'
+        }
+        setData(() => data)
       })
 
   })
@@ -45,7 +50,12 @@ function Scanner(props) {
 
 
   return (
-    <div>
+    <div style={{
+      position:'fixed',
+      top:'0',
+      minWidth:'100%',
+      minHeight:'100%'
+    }}>
       <Camera
         onMove={onMove}
         getSnap={getSnap}

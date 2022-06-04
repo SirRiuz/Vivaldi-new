@@ -1,6 +1,6 @@
 
 
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback } from 'react'
 import '../styles/button.css'
 import KeyContext from '../context/KeyboardContext'
 import PropTypes from "prop-types"
@@ -8,12 +8,12 @@ import { calculate } from '../services/calculator'
 import { saveResult } from '../services/history'
 import AplicationContext from '../context/Aplication'
 import { getOperationName } from '../services/utils'
+import ReactLoading from 'react-loading';
 
 
 
 
 // ACTION_BUTTONS
-const ACTION_BUTTON = 'submit'
 const ACTION_DELETE = 'delete'
 const ACTION_MOVE_LEFT = 'moveLeft'
 const ACTION_MOVE_RIGTH = 'moveRigth'
@@ -76,12 +76,16 @@ function actionButtons(action,context,appContext,props) {
     var result = document.getElementById('math-result').value
 
 
-    if(value === '' || result !== '' || context.isError){ return }
+    if(value === '' || result !== '' || context.isError){ 
+      context.setLoad(() => context.isLoad = false)
+      return
+    }
 
     calculate({
       latex:value,
       operation:getOperationName(value)
     })
+      .then(res => res.json())
       .then(res =>{
         if(res.status === 'ok'){
           saveResult({
@@ -104,8 +108,10 @@ function actionButtons(action,context,appContext,props) {
         context.setLoad(() => context.isLoad = false)
       })
       .catch(err => {
-        console.log(err)
+        document.getElementById('math-result').value = ''
+        document.getElementById('math-input').value = 'Error\\,\\,de\\,\\,conexion'
         context.setLoad(() => context.isLoad = false)
+        context.setError(() => context.isError = true)
       })
   }
 
@@ -137,10 +143,16 @@ function Button(props) {
   const onClickButton = useCallback(() => {
     actionButtons(props.action,context,aplicationContext,props)
   })
+
+  //context.isLoad
+  if(props.action === ACTION_SUBMIT && context.isLoad){
+    return(
+      <div style={{ ...props.style }}>
+        <ReactLoading type={'spin'} color={'black'} height={20} width={20} />
+      </div>
+    )
+  }
   
-
-
-
   return(
     <button
       onClick={onClickButton}

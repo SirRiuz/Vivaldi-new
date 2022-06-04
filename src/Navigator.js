@@ -6,6 +6,7 @@ import './styles/navigation.css'
 import AplicationContext from './context/Aplication'
 import History from './screens/history'
 import Steps from './screens/steps'
+import Scanner from './screens/scanner'
 
 
 
@@ -23,6 +24,10 @@ function Navigator(props) {
 
     case 'steps':
       renderComponent = <Steps/>
+      break
+
+    case 'scanner':
+      renderComponent = <Scanner/>
       break
   }
 

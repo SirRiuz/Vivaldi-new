@@ -1,0 +1,37 @@
+
+
+.loader{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.steps{
+    margin-top: 135px;
+    margin-left: 20px;
+}
+
+.step-item{
+    margin-bottom: 30px;
+}
+
+
+.expand-text{
+    margin-top: 15px;
+}
+
+.katex , .mord ,.mtight{
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.mbin,mtight{
+    color: gray;
+}
+
+
+.expand-text .katex{
+    font-size: 15px;
+    color: gray;
+}

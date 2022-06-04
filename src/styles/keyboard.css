@@ -47,3 +47,11 @@
   display: flex;
 }
 
+
+.send-button{
+  background-color: palegoldenrod;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

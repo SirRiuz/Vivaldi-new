@@ -3,8 +3,10 @@
 import { getHistory, removeItem } from '../services/history'
 import React, { useCallback, useEffect } from 'react'
 import '../styles/history.css'
-var Latex = require('react-latex')
+import CloseIcon from '../svg/Close'
 
+
+var Latex = require('react-latex')
 
 
 
@@ -27,7 +29,6 @@ function History(props) {
   useEffect(() => { if(history === null){ showHistory() } },[])
 
 
-  
   if(history !== null){
     
     if(history.length <= 0){
@@ -42,7 +43,7 @@ function History(props) {
         </div>
 
         <div onClick={() => onDelete(x)}>
-          <h1>X</h1>
+          <CloseIcon/>
         </div>
       </div>
     ))

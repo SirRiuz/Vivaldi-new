@@ -38,6 +38,16 @@ import IntegralDoble from "../svg/IntegralDoble"
 import IntegralTrible from "../svg/IntegralTriple"
 import IntegralDefine from "../svg/IntegralDefine"
 import Limit from "../svg/Limit"
+import LimLeft from "../svg/LimLeft"
+import Diff from "../svg/Diff"
+import SumA from "../svg/SumA"
+import Prod from "../svg/Prod"
+import Permutation from "../svg/Permutation"
+import Combination from "../svg/Combination"
+import LimRigth from "../svg/LimRigth"
+import LimInf from "../svg/LimInf"
+import ParA from "../svg/Pad_a"
+import ParB from "../svg/PadB"
 
 
 
@@ -63,7 +73,6 @@ function getKeys(mode) {
             value:'\\ln\\placeholder{⬚}',
           },{
             styles:{ background:COLOR,  visibility: 'hidden' },
-            renderValue:'',
             value:'0',
           }
       ],[
@@ -140,11 +149,11 @@ function getKeys(mode) {
           }
       ],[
         {
-            renderValue:'',
-            value:'=',
+            renderValue:<ParA/>,
+            value:'(',
           },{
-            renderValue:'',
-            value:'.',
+            renderValue:<ParB/>,
+            value:')',
           },{
             renderValue:<Zero/>,
             value:'0',
@@ -175,93 +184,76 @@ function getKeys(mode) {
         renderValue:<IntegralDefine/>,
         value:'\\int_\\placeholder{⬚}^\\placeholder{⬚}\\placeholder{⬚}dx',
       },{
-        renderValue:'x',
         value:'0',
         styles:{ background:COLOR,  visibility: 'hidden' },
       }
     ],[
         {
-            renderValue:'Lim in',
+            renderValue:<Limit/>,
             value:'\\lim_{\\placeholder{⬚}\\to\\placeholder{⬚}}\\placeholder{⬚}',
           },{
-            renderValue:'Lim la +',
+            renderValue:<LimLeft/>,
             value:'\\lim_{\\placeholder{⬚}\\to\\placeholder{⬚}^+}\\placeholder{⬚}',
           },{
-            renderValue:'Lim la -',
+            renderValue:<LimRigth/>,
             value:'\\lim_{\\placeholder{⬚}\\to\\placeholder{⬚}^-}\\placeholder{⬚}',
           },{
-            renderValue:'Lim infi',
+            renderValue:<LimInf/>,
             value:'\\lim_{\\placeholder{⬚}\\to \\infty}\\placeholder{⬚}',
           },{
-            renderValue:'diff',
+            renderValue:<Diff/>,
             value:'\\frac{dy}{\\differentialD x}\\placeholder{⬚}',
           }
       ],[
         {
-            renderValue:'SUM_1',
+            renderValue:<SumA/>,
             value:'\\sum_{n=\\placeholder{⬚}}^{\\placeholder{⬚}}(\\placeholder{⬚})',
           },{
-            renderValue:'SUM_2',
+            renderValue:<Prod/>,
             value:'\\prod_{n=\\placeholder{⬚}}^{\\placeholder{⬚}}(\\placeholder{⬚})',
           },{
-            renderValue:'PER',
+            renderValue:<Permutation/>,
             value:'_\\placeholder{⬚}P_\\placeholder{⬚}',
           },{
-            renderValue:'COM',
+            renderValue:<Combination/>,
             value:'_\\placeholder{⬚}C_\\placeholder{⬚}',
           },{
-            renderValue:'x',
             value:'0',
           }
       ],[
         {
-            renderValue:<Eq/>,
             value:'=',
           },{
-            renderValue:<Point/>,
             value:'.',
           },{
-            renderValue:<Zero/>,
             value:'0',
           },{
-            renderValue:'x',
             value:'0',
           },{
-            renderValue:'x',
             value:'0',
           }
       ],[
         {
-            renderValue:<Eq/>,
             value:'=',
           },{
-            renderValue:<Point/>,
             value:'.',
           },{
-            renderValue:<Zero/>,
             value:'0',
           },{
-            renderValue:'x',
             value:'0',
           },{
-            renderValue:'x',
             value:'0',
           }
       ],[
         {
-            renderValue:<Eq/>,
             value:'=',
           },{
-            renderValue:<Point/>,
             value:'.',
           },{
-            renderValue:<Zero/>,
             value:'0',
           },{
-            renderValue:'x',
             value:'0',
           },{
-            renderValue:'x',
             value:'0',
           }
       ]

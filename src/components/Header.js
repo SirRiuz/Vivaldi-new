@@ -13,9 +13,18 @@ function Header(props) {
 
   const appContext = React.useContext(aplicationContext)
   const onClick = React.useCallback(() => {
-    var newContext = { screen:{ to:'steps',showSteps:true,params:{
-      latex:document.getElementById('math-input').value
-    } } }
+    var newContext = {
+        screen:{
+          title:'Paso a paso',
+          to:'steps',
+          showSteps:true,
+          params:{
+          latex:document.getElementById('math-input').value
+        }
+      }
+    }
+
+
     appContext.setContext(
       () => appContext.context=newContext
     )
@@ -23,7 +32,7 @@ function Header(props) {
 
 
   const showCamera = React.useCallback(() => {
-    var newContext = { screen:{ to:'Show camera' } }
+    var newContext = { screen:{ to:'scanner' },appBar:'hidden' }
     appContext.setContext(
       () => appContext.context=newContext
     )
